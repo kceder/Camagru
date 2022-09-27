@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../php/etc"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "camagru"
+	}
+}
