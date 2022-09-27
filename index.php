@@ -7,16 +7,75 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>CAMAAN</title>
-	    <a class="camagru" href="main_page.php">C A M A G R U</a>
 	</head>
 	<style>
-		.camagru{
-			color: black;
-			font-size: 40;
-		}
+    .error {
+        text-align: center;
+    }
+    .login {
+        font-style: italic;
+        margin-left: 9px;
+        font-size: 1vw;
+    }
+    .headers {
+        color: black;
+        text-align: center;
+        padding: 15px 25px;
+        border: none;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    a:link { text-decoration: none; }
+    a:visited { text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:active { text-decoration: underline; }
+    a {
+        color: black;
+    }
+    h1 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+    }
+    body {
+        background: rgb(94,190,196);
+        background: radial-gradient(circle, rgba(94,190,196,1) 0%, rgba(253,245,223,1) 87%);
+        /* background: #FDF5DF; */
+    }
+    .main {
+        margin-left: auto;
+        margin-right: auto;
+        width: 54vh;
+        text-align: left;
+        background: white;
+        padding: 20px;
+        border-radius: 24px;
+        border-style: groove;
+        border-color: #5EBEC4;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.7vh;
+        /* background: rgb(253,245,223);
+        background: linear-gradient(138deg, rgba(253,245,223,1) 42%, rgba(94,190,196,1) 98%); */
+        background: #FDF5DF;
+    }
+    .button {
+        background: #f0ebe5;
+        border-width: 1px;
+        border-radius: 5px 5px 5px 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
+    }
 	</style>
+	    <p class="login"><?php if($_SESSION['logged_in_user'])
+            echo 'Logged in as: '.$_SESSION['logged_in_user'];?></p>
+    <h1>C A M A G R U</h1>
+    <div class="headers">
+        <a href="profile.php">PROFILE</a>
+        <a href="camera.php">TAKE A PHOTO</a>
+        <a href="main_page.php">HOME</a>
+        <a class="logout" href="logout.php">LOG OUT</a>
+    </div>
 	<body>
-	<div class="">
+	<div class="main">
 			<form class="form" action="login.php" method="POST">
 				<br/>
 				<br/>
@@ -24,13 +83,13 @@
 				<br/>
 				<br/>
 				Password: <input class="passwd" type="password" name="passwd" value=""/>
-				<input class="form submit" type="submit" name="submit" value="OK"/>
+				<input class="button" type="submit" name="submit" value="OK"/>
 				<br/>
 			</form>
-		<a class="create_user" id="create_user" href="signup.php">SIGN UP</a>
+		<button class="button" id="create_user" href="signup.php">SIGN UP</button>
         </br>
         </br>
-        <a class="forgotpw" href="forgot.php">Forgot your password?</a>
+        <button class="button" href="forgot.php">Forgot your password?</button>
 	</div>
 
 	</body>
