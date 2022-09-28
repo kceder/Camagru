@@ -25,7 +25,7 @@
         
           
         Go to Camagru and check it out!
-        http://localhost:8080/camagru/main_page.php
+        http://localhost:8080/camagru/home.php
           
         ';
                               
@@ -41,7 +41,7 @@
         
           
         Go to Camagru and check it out!
-        http://localhost:8080/camagru/main_page.php
+        http://localhost:8080/camagru/home.php
           
         ';
                               

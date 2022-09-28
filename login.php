@@ -6,13 +6,17 @@
 	$permission = verify($login, $passwd);
 	if ($permission === 2) {
 		$_SESSION['logged_in_user'] = $login;
-        header('Location: ./main_page.php');
+        header('Location: ./home.php');
 	}
     else if ($permission === 1) {
-        echo 'Please verify your email address!';
+		include("index.php");
+        echo "<p class='error'>Please verify your email address!</p>";
+        return ;
     }
 	else if ($permission === 0) {
-		echo 'Wrong password or username!';
+		include("index.php");
+		echo "<p class='error'>Wrong password or username!</p>";
+		return ;
     }
 	function verify($login, $passwd)
 	{

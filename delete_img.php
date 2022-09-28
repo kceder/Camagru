@@ -2,7 +2,7 @@
 session_start();
 require_once('connect.php');
 if (!isset($_SESSION['logged_in_user']))
-    header('Location: main_page.php');
+    header('Location: home.php');
 if (isset($_POST['delete_image'])) {
     $img = $_POST['delete_image'];
     $_POST = array();

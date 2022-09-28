@@ -14,7 +14,7 @@
             echo 'Logged in as: '.$_SESSION['logged_in_user'];?></p>
     <h1>C A M A G R U</h1>
     <div class="headers">
-        <a href="main_page.php">HOME</a> | 
+        <a href="home.php">HOME</a> | 
         <a href="profile.php">PROFILE</a> | 
         <a href="camera.php">TAKE A PHOTO</a> | 
         <a class="logout" href="logout.php">LOG OUT</a>
@@ -49,9 +49,14 @@
             padding: 15px 25px;
             border: none;
     }
+    h1 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+    }
     body {
-            background: #f9f9f9;
-        }
+        background: rgb(94,190,196);
+        background: radial-gradient(circle, rgba(94,190,196,1) 0%, rgba(253,245,223,1) 87%);
+    }
     a:link { text-decoration: none; }
     a:visited { text-decoration: none; }
     a:hover { text-decoration: underline; }
@@ -74,16 +79,46 @@
         text-align: center;
         font-style: bold;
     }
+    .main {
+        margin-top: 10vh;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40vh;
+        text-align: left;
+        background: white;
+        padding: 20px;
+        border-radius: 24px;
+        border-style: groove;
+        border-color: #5EBEC4;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.7vh;
+        background: #FDF5DF;
+    }
+    .button {
+        background: #f0ebe5;
+        border-width: 1px;
+        border-radius: 5px 5px 5px 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
+    }
+    .new {
+        width: 20vh;
+        display: inline-block;
+    }
+    form {
+        text-align: center;
+    }
 
 </style>
 <body>
-    <div class="confirm-form">
+    <div class="main">
         <p>Permanently delete your account and all the data?</p>
         <form class="form" action="delete_user.php" method="POST">
             Give password to confirm: <input class="" type="password" name="passwd" value=""/>
             <br><br>
-            <input class="confirm-button" type="submit" name="YES" value="CONFIRM">
-            <input class="confirm-button" type="submit" name="NO" value="GO BACK">
+            <input class="button" type="submit" name="YES" value="CONFIRM" style="background:#ffaeae;">
+            <input class="button" type="submit" name="NO" value="GO BACK">
         </form>
     </div>
 </body>
@@ -103,7 +138,7 @@
             $stmt->execute();
             print_r($_POST['submit']);
             $_SESSION = array();
-            header('Location: main_page.php');
+            header('Location: home.php');
         }
         else {
             echo "<html><p class='message1'>Incorrect Password!</p></html>";

@@ -27,7 +27,7 @@ if($_POST['OK'] === 'Post' && $comment){
         $notification_satus = $result[0]['noti_status'];
         if($notification_satus)
             email_sender1($email, $receiver);
-        header('Location: main_page.php');
+        header('Location: home.php');
     }
     catch(PDOException $e)
     {
@@ -44,7 +44,7 @@ if($_POST['OK'] === 'Post' && $comment){
     
       
 //     Go to Camagru and check it out!
-//     http://localhost:8080/camagru/main_page.php
+//     http://localhost:8080/camagru/home.php
       
 //     ';
                           

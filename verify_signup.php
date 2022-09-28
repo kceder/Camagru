@@ -11,15 +11,25 @@
     $new_passwd2 = htmlspecialchars($_POST['passwd2']);
     $new_email = htmlspecialchars($_POST['email']);
 
-    if($_POST['login'] && $_POST['passwd'] && $_POST['passwd2'] === $_POST['passwd'] && $_POST['email'] && $_POST['submit'] && $_POST['submit'] === 'OK'){
+    if($_POST['login'] && $_POST['passwd'] && $_POST['passwd2'] && $_POST['email'] && $_POST['submit'] && $_POST['submit'] === 'OK'){
         
-        if (!user_check($new_user)) {
+        if (user_check($new_user)){
+            $message = user_check($new_user);
+            echo "<p class='error'>$message</p>";
             return ;
         }
         else if (!passwd_check($new_passwd)){
-            echo 'Password should be at least 8 characters and has to include at least one upper and lower case letter, one number, and one special character!';
+            echo '<p class="error">Password should be at least 8 characters and has to include at least one upper and lower case letter, one number, and one special character!</p>';
         }
-        else if (email_check($new_email)) {
+        else if ($_POST['passwd2'] !== $_POST['passwd']) {
+            echo "<p class='error'>Passwords do not match</p>";
+        }
+        else if (email_check($new_email) == 1) {
+            echo "<p class='error'>'$new_email' is already connected to Camagru!'</p>";
+            return ;
+        }
+        else if (email_check($new_email) == 2) {
+            echo "<p class='error'>'$new_email' is invalid email address!'</p>";
             return ;
         }
         else {
@@ -49,6 +59,6 @@
         }
     }
     else {
-        echo 'NICE TRY!';
+        echo '<p class="error">Please fill all the fields!</p>';
     }
 ?>

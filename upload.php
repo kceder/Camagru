@@ -2,7 +2,7 @@
 session_start();
     require_once("connect.php");
     if(!$_SESSION['logged_in_user'])
-        header('Location: main_page.php');
+        header('Location: home.php');
 
     $target_dir = "images/user_images/";
     $file = ($_FILES["file"]["name"]);

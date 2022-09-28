@@ -83,5 +83,5 @@ else
 {
     echo("ERROR");
 }
-header('Location: main_page.php');
+header('Location: home.php');
 ?>

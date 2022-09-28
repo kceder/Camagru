@@ -10,7 +10,7 @@
             echo 'Logged in as: '.$_SESSION['logged_in_user'];?></p>
     <h1>C A M A G R U</h1>
     <div class="headers">
-        <a href="main_page.php">HOME</a> | 
+        <a href="home.php">HOME</a> | 
         <a href="profile.php">PROFILE</a> | 
         <a href="camera.php">TAKE A PHOTO</a> | 
         <?php 
@@ -237,9 +237,11 @@
                                     <?php
                             }
                         }
-                    if($_SESSION['logged_in_user']){ ?>
+                        ?>
+                    </div>
+                    <?php
+                        if($_SESSION['logged_in_user']){ ?>
                     <br>
-                </div>
                     <form class="form" action="comment.php" method="POST">   
                         <textarea name="comment" id="comment" rows="1" placeholder=" Write a comment..."></textarea><br/>
                         <input type="hidden" name="img_path" value="<?php echo $k['img_path'];?>">

@@ -9,7 +9,6 @@
             return 2;
         }
         else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo("'$email' is invalid email address!"); 
             return 1;
         }
         else {return 0;}

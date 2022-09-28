@@ -29,7 +29,7 @@
 			}
 		}
 		catch(PDOException $e) {
-            echo 'NO!'; }
+            echo 'Incorrect password!'; }
 		return $ret;
 	}
 ?>

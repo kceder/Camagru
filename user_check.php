@@ -8,13 +8,13 @@
         $stmt = $conn->query($sql);
         $match = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if ($match) {
-            echo 'This username is already taken!';
-            return 0;
+            return 'This username is already taken!';
         }
         else if (!preg_match('/^[A-Za-z0-9]{4,13}$/', $user) ) {
-            echo 'Username can only include letters and numbers, and it must be 4 - 13 characters long';
-            return 0;
+            $message = 'Username can only include letters and numbers, and it must be 4 - 13 characters long';
+            return $message;
         }
-        else {return 1;}
+        else
+            return 0;
     }
 ?>

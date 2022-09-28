@@ -45,7 +45,6 @@
     body {
         background: rgb(94,190,196);
         background: radial-gradient(circle, rgba(94,190,196,1) 0%, rgba(253,245,223,1) 87%);
-        /* background: #FDF5DF; */
     }
     .main {
         margin-left: auto;
@@ -78,7 +77,7 @@
     <div class="headers">
         <a href="profile.php">PROFILE</a>
         <a href="camera.php">TAKE A PHOTO</a>
-        <a href="main_page.php">HOME</a>
+        <a href="home.php">HOME</a>
         <a class="logout" href="logout.php">LOG OUT</a>
     </div>
     <body>
@@ -130,8 +129,9 @@
 			<form class="form" action="delete_user.php" method="POST">
                 <input class="button" type="submit" name="submit" value="DELETE USER" style="background:#ffaeae;"/>
 			</form>
-            
-            <button class="button" id="return" href="main_page.php">Return</button> 
+            <form class="form" action="profile.php">
+                <input class="button" type="submit" value="Return"></input> 
+            </form>
     </div>
     </body>
 </html>
