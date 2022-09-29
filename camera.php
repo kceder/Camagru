@@ -244,6 +244,7 @@
             xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhr.send('image='+newPicture.value+"&sticker1="+sticker.value1+"&sticker2="+sticker.value2+"&sticker3="
                                 +sticker.value3+"&sticker4="+sticker.value4+"&sticker5="+sticker.value5);
+            setTimeout(location.reload.bind(location), 10);
         }
         else
             alert("Choose at least one sticker!")

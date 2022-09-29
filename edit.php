@@ -18,6 +18,7 @@
     <style>
     .error {
         text-align: center;
+        font-size: 2.0vh;
     }
     .login {
         font-size: 2.4vh;
@@ -83,6 +84,9 @@
         font-size: 1.5vh;
         text-align: right;
         color: #9ec2bd;
+        position: absolute;
+        bottom: 0;
+        width: 99%;
     }
 </style>
     <p class="login"><?php if($_SESSION['logged_in_user'])
@@ -95,7 +99,6 @@
         <a class="logout" href="logout.php">LOG OUT</a>
     </div>
     <body>
-        <br><br>
         <div class="main">
             <br>
             <form class="form" action="edit_profile.php" method="POST">
@@ -146,9 +149,9 @@
                 <input class="button" type="submit" value="Return"></input> 
             </form>
     </div>
-    <footer class="footer">
-        <br><hr>
-        <span>Author: kceder @ HIVE Helsinki 2022</span>
-    </footer>
-    </body>
+</body>
+<footer class="footer">
+    <br><hr>
+    <span>Author: kceder @ HIVE Helsinki 2022</span>
+</footer>
 </html>

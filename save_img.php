@@ -44,7 +44,6 @@
             $src = imagecreatefrompng('images/stickers/sticker5.png');
             add_sticker($file, $src, -8, -5);
         }
-        header("Refresh:0");
     }
     catch(PDOException $e)
     {

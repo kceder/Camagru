@@ -36,20 +36,4 @@ if($_POST['OK'] === 'Post' && $comment){
     $conn = null;
 
 }
-// function email_sender1($email, $name) {
-        
-//     $subject = 'Someone commented on your picture!';
-//     $message = 'Hi '.$name.'!
-//     You have just received a comment on your Camagru picture.
-    
-      
-//     Go to Camagru and check it out!
-//     http://localhost:8080/camagru/home.php
-      
-//     ';
-                          
-//     if(!mail($email, $subject, $message)){
-//         echo 'MAIL NOT SENT!';
-//     }
-//     }
 ?>

@@ -52,6 +52,9 @@
         font-size: 1.5vh;
         text-align: right;
         color: #9ec2bd;
+        position: absolute;
+        bottom: 0;
+        width: 99%;
     }
 	</style>
 	<head>

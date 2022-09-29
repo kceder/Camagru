@@ -6,11 +6,11 @@
     require_once('passwd_check.php');
     require_once('verify_passwd.php');
     require_once('user_check.php');
-    $new_user = $_POST['new_username'];
-    $old_passwd = $_POST['passwd'];
-    $new_passwd = $_POST['new_passwd'];
-    $new_passwd2 = $_POST['new_passwd2'];
-    $new_email = $_POST['new_email'];
+    $new_user = ($_POST['new_username']);
+    $old_passwd = htmlspecialchars($_POST['passwd']);
+    $new_passwd = htmlspecialchars($_POST['new_passwd']);
+    $new_passwd2 = htmlspecialchars($_POST['new_passwd2']);
+    $new_email = htmlspecialchars($_POST['new_email']);
     $old_user = $_SESSION['logged_in_user'];
     if(($new_user || $new_email || $new_passwd || $_POST['notif']) && $_POST['passwd'] && $_POST['submit'] && $_POST['submit'] == 'SAVE'){
         if  (!verify($old_user, $old_passwd)){

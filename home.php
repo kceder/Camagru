@@ -47,8 +47,13 @@
         }
     .like_count{
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-weight: bold;
-        }
+        margin-top: 1vh;
+    }
+    .heart {
+        width: 3vh;
+        float: right;
+        padding: 0vh;
+    }
     .login {
         font-style: italic;
         margin-left: 9px;
