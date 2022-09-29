@@ -53,41 +53,27 @@ session_start();
                     $img = imagecreatefrompng($img_path);
                 else if ($imageFileType == "gif")
                     $img = imagecreatefromgif($img_path);
-                    $size = getimagesize($img_path);
-                    $w = $size[0] / 400;
-                    $h = $size[1] / 300;
-                    // $img = imagescale( $img, 400, 300);
+                $size = getimagesize($img_path);
+                $w = $size[0] / 400;
+                $h = $size[1] / 300;
                 if($_POST['sticker1'] == 1) {
                     $src = imagecreatefrompng('images/stickers/sticker1.png');
-                    // $w = $scale_w * (100 / $scale_w);
-                    // $h = $scale_h * (71 / $scale_h);
-                    // $src = imagescale($src, $w, $h);
                     add_sticker($img, $src, $w + 0, $h + 0, $img_path);
                 }
                 if($_POST['sticker2'] == 1) {
                     $src = imagecreatefrompng('images/stickers/sticker2.png');
-                    // $w = $scale_w * (100 / $scale_w);
-                    // $h = $scale_h * (71 / $scale_h);
-                    // $src = imagescale($src, $w, $h);
                     add_sticker($img, $src, $w * 50, $h * 20, $img_path);
                 }
                 if($_POST['sticker3'] == 1) {
                     $src = imagecreatefrompng('images/stickers/sticker3.png');
-                    // $src = imagescale($src, 1280 / $scale_w, 437 / $scale_h);
                     add_sticker($img, $src, $w * 220, $h * 200, $img_path);
                 }
                 if($_POST['sticker4'] == 1) {
                     $src = imagecreatefrompng('images/stickers/sticker4.png');
-                    // $w = $scale_w * (100 / $scale_w);
-                    // $h = $scale_h * (71 / $scale_h);
-                    // $src = imagescale($src, $w, $h);
                     add_sticker($img, $src, $w + 200, $h + 200, $img_path);
                 }
                 if($_POST['sticker5'] == 1) {
                     $src = imagecreatefrompng('images/stickers/sticker5.png');
-                    // $w = $scale_w * (100 / $scale_w);
-                    // $h = $scale_h * (71 / $scale_h);
-                    // $src = imagescale($src, $w, $h);
                     add_sticker($img, $src, $w * 100, $h * 15, $img_path);
                 }
                 imagedestroy($img);

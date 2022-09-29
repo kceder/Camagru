@@ -47,7 +47,7 @@
                 return ;
             }
         }
-        if (!isset($new_email)) {
+        if (empty($new_email)) {
             $new_email = $_SESSION['email'];
         }
         if($_POST['notif'] == 'ON')
@@ -85,7 +85,9 @@
         $conn = null;
     }
     else {
-        // header('Location: edit.php');
+
+        include("edit.php");
+        echo "<p class='error'>Give password to make changes!</p>";
     }
 
     function update_tables($new_user, $old_user) {

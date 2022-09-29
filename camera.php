@@ -29,13 +29,17 @@
         color: black;
         text-align: center;
         padding: 15px 25px;
-        text-decoration: none;
         border: none;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     h1 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         text-align: center;
     }
     #video, canvas {
+        border-radius: 3%;
+        margin: auto;
+        width: 100%;
         transform: rotateY(180deg);
         -webkit-transform:rotateY(180deg); /* Safari and Chrome */
         -moz-transform:rotateY(180deg); /* Firefox */
@@ -50,73 +54,64 @@
         display: none;
     }
     .image_container {
-        display: flex;
-        float: right;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        margin-left: 5%;
-        margin-right: 20%;
-        max-height: 30vh;
+        max-height: 70vh;
         overflow-y: scroll;
-        
+        margin-top: 1vh;
+        border-style: groove;
+        padding: 20px;
+        border-radius: 24px;
+        border-style: groove;
+        border-color: #5EBEC4;
+        background: #FDF5DF;
     }
     img{
-        padding: 5px;
         transform: rotateY(180deg);
         -webkit-transform:rotateY(180deg); /* Safari and Chrome */
         -moz-transform:rotateY(180deg); /* Firefox */
         border-radius: 14px;
     }
-    #h1 {
-        margin-left: auto; margin-right: auto;
-        font-size: smaller;
+    .main {
+        margin-left: auto;
+        margin-right: auto;
+        width: 54vh;
+    }
+    body {
+        background: rgb(94,190,196);
+        background: radial-gradient(circle, rgba(94,190,196,1) 0%, rgba(253,245,223,1) 87%);
+    }
+    a:link { text-decoration: none; }
+    a:visited { text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:active { text-decoration: underline; }
+    a {
+        color: black;
     }
     .stickers {
-        display: flex;
-        float: left;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: wrap;
-        border: none;
-        margin-right: 5%;
-        margin-left: 20%;
+        margin: auto;
     }
     .sticker {
-        display: inline;
-        max-width:125px;
-        max-height:100px;
-        width: auto;
-        height: auto;
+        max-width:9vw;
     }
     .sticker1 {
-        display: inline;
-        max-width:125px;
-        max-height:100px;
-        width: auto;
-        height: auto;
+        max-width:8vw;
         transform: rotateY(180deg);
         -webkit-transform:rotateY(180deg); /* Safari and Chrome */
         -moz-transform:rotateY(180deg); /* Firefox */
     }
-    .container {
-        display:flex;
-        justify-content:space-between;
-        width: 44vh;
-    }
     .side_img {
-        width: 100px;
-    }
-    .main {
-        display: inline-block;
-        margin: 0 auto;   
+        width: 49vh;
     }
     .save_button {
-        margin: 0;
-        position: absolute;
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
+    }
+    .button {
+        background: #f0ebe5;
+        border-width: 1px;
+        border-radius: 5px 5px 5px 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
     }
     a:link { text-decoration: none; }
         a:visited { text-decoration: none; }
@@ -130,12 +125,35 @@
         background: radial-gradient(circle, rgba(94,190,196,1) 0%, rgba(253,245,223,1) 87%);
         /* background: #FDF5DF; */
     }
+    .booth {
+        text-align: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        background: white;
+        padding: 20px;
+        border-radius: 24px;
+        border-style: groove;
+        border-color: #5EBEC4;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.4vh;
+        background: #FDF5DF;
+    }
+    .upload-buttons {
+        
+    }
+    .upload {
+
+    }
     
 </style>
 <body>
     <div class="main">
-
-        <div id="container" class="container">
+        <div class="booth">
+            <video id="video" autoplay></video>
+            <div class ="save_button">
+                <button class="button" onclick="postPicture" value="">CAPTURE</button>
+            </div>
             <div id="stickers" class="stickers">
                 <img class="sticker" id="s1" src="./images/stickers/sticker1.png" onclick="selectedSticker(1)">
                 <img class="sticker" id="s2" src="./images/stickers/sticker2.png" onclick="selectedSticker(2)">
@@ -143,8 +161,20 @@
                 <img class="sticker1" id="s4" src="./images/stickers/sticker4.png" onclick="selectedSticker(4)">
                 <img class="sticker" id="s5" src="./images/stickers/sticker5.png" onclick="selectedSticker(5)">
             </div>
-            <video id="video" autoplay></video>
             <img class= "img1" src="" alt="" id="camera_previw">
+        </div>
+        <br>
+            <div class="upload-container">
+                <form action="upload.php" method="POST" enctype="multipart/form-data">
+                    <div class="upload"><input type="file" name="file" id="file" required></div>
+                    <div class="upload" onclick="postUploaded"><input type="submit" value="Upload" name="submit"></div>
+                    <input type="hidden" id="sticker1" name="sticker1" value="">
+                    <input type="hidden" id="sticker2" name="sticker2" value="">
+                    <input type="hidden" id="sticker3" name="sticker3" value="">
+                    <input type="hidden" id="sticker4" name="sticker4" value="">
+                    <input type="hidden" id="sticker5" name="sticker5" value="">
+                </form>
+            </div>
             <div id="image_container" class="image_container">
                 <?php
                 try {
@@ -169,16 +199,17 @@
                     echo $stmt . "<br>" . $e->getMessage();
                 }
                 ?>
+
+	        </div>
 	</div>
-</div>
 <div class ="save_button">
-    <button class="" onclick="postPicture" value="">CAPTURE</button>
+    <button class="button" onclick="postPicture" value="">CAPTURE</button>
 </div>
 <br>
 <div class="upload-container">
             <form action="upload.php" method="POST" enctype="multipart/form-data">
-                <div class="choose"><input type="file" name="file" id="file" required></div>
-                <div class="upload" onclick="postUploaded"><input type="submit" value="Upload" name="submit"></div>
+                <div class="test"><input type="file" name="file" id="file" required></div>
+                <div class="test" onclick="postUploaded"><input type="submit" value="Upload" name="submit"></div>
                 <input type="hidden" id="sticker1" name="sticker1" value="">
                 <input type="hidden" id="sticker2" name="sticker2" value="">
                 <input type="hidden" id="sticker3" name="sticker3" value="">

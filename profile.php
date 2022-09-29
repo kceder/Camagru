@@ -12,8 +12,8 @@
         <a href="home.php">HOME</a> | 
         <a href="profile.php">PROFILE</a> | 
         <a href="camera.php">TAKE A PHOTO</a> | 
-        <a class="logout" href="logout.php">LOG OUT</a> | 
-        <a class="" href="edit.php">EDIT PROFILE</a>
+        <a class="" href="edit.php">EDIT PROFILE</a> |
+        <a class="logout" href="logout.php">LOG OUT</a> 
     </div>
     <br>
     <br>
@@ -39,7 +39,6 @@
         display: flex;
         text-align: center;
         flex-wrap: wrap;
-        /* justify-content: space-evenly; */
         padding: 20px;
         border-radius: 24px;
         border-style: groove;

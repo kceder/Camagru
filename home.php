@@ -86,14 +86,14 @@
         padding: 10px;
         width: 95%;
         transform: rotateY(180deg);
-        -webkit-transform:rotateY(180deg); /* Safari and Chrome */
-        -moz-transform:rotateY(180deg); /* Firefox */
+        /* -webkit-transform:rotateY(180deg);
+        -moz-transform:rotateY(180deg); */
         border-radius: 24px;
     }
     .comments{
         max-height: 16vh;
         max-width: 90%;
-        overflow-y:scroll;
+        overflow-y: auto;
         padding: 2%;
         margin: 2%;
         background: transparent;

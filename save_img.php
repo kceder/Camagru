@@ -17,12 +17,12 @@
         $img_name = basename($file);
         $user = $_SESSION['logged_in_user'];
         $conn = connect();
-        $stmt = $conn->prepare("INSERT INTO user_images (username) VALUES (:username)");
         $stmt = $conn->prepare("INSERT INTO user_images (username, img_name, img_path) VALUES (:username, :img_name, :img_path)");
         $stmt->bindParam(':username', $user);
         $stmt->bindParam(':img_name', $img_name);
         $stmt->bindParam(':img_path', $file);
         $stmt->execute();
+
 
         if($_POST['sticker1'] == 1) {
             $src = imagecreatefrompng('images/stickers/sticker1.png');
@@ -41,9 +41,11 @@
             add_sticker($file, $src, 200, 200);
         }
         if($_POST['sticker5'] == 1) {
-            $src = imagecreatefrompng('images/stickers/sticker8.png');
+            $src = imagecreatefrompng('images/stickers/sticker5.png');
             add_sticker($file, $src, -8, -5);
         }
+        include('camera.php');
+        header('Location: camera.php');
     }
     catch(PDOException $e)
     {

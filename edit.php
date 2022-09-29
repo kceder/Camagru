@@ -75,9 +75,9 @@
             echo 'Logged in as: '.$_SESSION['logged_in_user'];?></p>
     <h1>C A M A G R U</h1>
     <div class="headers">
-        <a href="profile.php">PROFILE</a>
-        <a href="camera.php">TAKE A PHOTO</a>
-        <a href="home.php">HOME</a>
+        <a href="home.php">HOME</a> | 
+        <a href="profile.php">PROFILE</a> | 
+        <a href="camera.php">TAKE A PHOTO</a> | 
         <a class="logout" href="logout.php">LOG OUT</a>
     </div>
     <body>
