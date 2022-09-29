@@ -11,25 +11,27 @@ session_start();
     $imageFileType = strtolower(pathinfo($img_path, PATHINFO_EXTENSION));
     $user = $_SESSION['logged_in_user'];
     $img_name = basename($file);
-
     if(isset($_POST["submit"])) 
     {
         if(getimagesize($_FILES["file"]["tmp_name"]) === false)
         {
-            alert("File is not an image");
-            header('Refresh: 3; camera.php');
+            Header( 'Location: camera.php?error=1');
+            include("camera.php");
+            echo "<p class='error'>File is not an image.</p>";
             return;
         }
         else if ($_FILES["file"]["size"] > 1000000) 
         {
-            alert("File over max size");
-            header('Refresh: 3; camera.php');
+            Header( 'Location: camera.php?error=2');
+            include("camera.php");
+            echo "<p class='error'>File over max size. Only images under 1MB.</p>";
             return;
         }
         else if($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif")
         {
-            alert("File must be .JPG, .JPEG, .PNG or .GIF");
-            header('Refresh: 3; camera.php');
+            Header( 'Location: camera.php?error=3');
+            include("camera.php");
+            echo "<p class='error'>File must be .JPG, .JPEG, .PNG or .GIF.</p>";
             return;
         }
         else 
@@ -80,6 +82,7 @@ session_start();
                header("Location: camera.php");
         }
     }
+
     function add_sticker($img, $src, $margin_l, $margin_t, $img_path){
         $width = imagesx($src);
         $height = imagesy($src);
@@ -87,4 +90,5 @@ session_start();
         imagejpeg($img, $img_path);
         imagedestroy($img);
     }
+    
 ?>

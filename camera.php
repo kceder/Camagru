@@ -123,6 +123,7 @@
     a:hover { text-decoration: underline; }
     a:active { text-decoration: underline; }
     body {
+        position: relative;
         background: rgb(94,190,196);
         background: radial-gradient(circle, rgba(94,190,196,1) 0%, rgba(253,245,223,1) 87%);
     }
@@ -146,6 +147,10 @@
         font-size: 1.5vh;
         text-align: right;
         color: #9ec2bd;
+    }
+    .error {
+        color: #c95e5e;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 </style>
 <body>
@@ -176,6 +181,17 @@
                     <input type="hidden" id="sticker5" name="sticker5" value="">
                 </form>
             </div>
+            <?php
+            if (isset($_GET['error']))
+            {
+                if ($_GET['error'] == 1)
+                    echo "<p class='error'>File is not an image.</p>";
+                if ($_GET['error'] == 2)
+                    echo "<p class='error'>File over max size. Only images under 1MB.</p>";
+                if ($_GET['error'] == 3)
+                    echo "<p class='error'>File must be .JPG, .JPEG, .PNG or .GIF.</p>";
+            }
+            ?>
             <div id="image_container" class="image_container">
                 <?php
                 try {
