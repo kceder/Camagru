@@ -15,108 +15,121 @@
             $match = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
             if($match > 0) { ?>
-                <!DOCTYPE html>
-                <html>
-                    <style>
-                    .error {
-                        text-align: center;
-                    }
-                    h1 {
-                        margin-top: 5vh;
-                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                        text-align: center;
-                    }
-                    body {
-                        background: rgb(94,190,196);
-                        background: radial-gradient(circle, rgba(94,190,196,1) 0%, rgba(253,245,223,1) 87%);
-                        /* background: #FDF5DF; */
-                    }
-                    .main {
-                        margin-top: 10vh;
-                        margin-left: auto;
-                        margin-right: auto;
-                        width: 40vh;
-                        text-align: left;
-                        background: white;
-                        padding: 20px;
-                        border-radius: 24px;
-                        border-style: groove;
-                        border-color: #5EBEC4;
-                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                        font-size: 1.7vh;
-                        background: #FDF5DF;
-                    }
-                    .button {
-                        background: #f0ebe5;
-                        border-width: 1px;
-                        border-radius: 5px 5px 5px 5px;
-                        cursor: pointer;
-                        text-transform: uppercase;
-                        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
-                    }
-                    .new {
-                        width: 20vh;
-                        display: inline-block;
-                    }
-                    form {
-                        text-align: center;
-                    }
-                    </style>
-                <body>
-                <h1>C A M A G R U</h1>
-                <div class="main">
-			        <form class="form" action="" method="POST">
-                        <br/>
-                        <br/>
-                        New password<br><input class="new_password" type="password" name="passwd" value=""/>
-                        <br>
-                        <br>
-                        New password again<br><input class="new_password" type="password" name="passwd2" value=""/>
-                        <br>
-                        <br>
-                        <input class="button" type="submit" name="submit_pw" value="OK"/>
-                        <br/>
-			        </form>
-                    <br>
-                    <br>
-                    <form class="form" action="index.php">
-                        <input class="button" type="submit" value="Return"></input> 
-                    </form>
-                </div>
-                </body>
-                </html>
-                <?php
-                if (isset($_POST['submit_pw']) && $_POST['passwd'] === $_POST['passwd2']) {
+<!DOCTYPE html>
+<html>
+    <style>
+    .error {
+        text-align: center;
+    }
+    h1 {
+        margin-top: 5vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+    }
+    body {
+        background: rgb(94,190,196);
+        background: radial-gradient(circle, rgba(94,190,196,1) 0%, rgba(253,245,223,1) 87%);
+        /* background: #FDF5DF; */
+    }
+    .main {
+        margin-top: 10vh;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40vh;
+        text-align: left;
+        background: white;
+        padding: 20px;
+        border-radius: 24px;
+        border-style: groove;
+        border-color: #5EBEC4;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.7vh;
+        background: #FDF5DF;
+    }
+    .button {
+        background: #f0ebe5;
+        border-width: 1px;
+        border-radius: 5px 5px 5px 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
+    }
+    .new {
+        width: 20vh;
+        display: inline-block;
+    }
+    form {
+        text-align: center;
+    }
+    .footer {
+        font-style: italic;
+        margin-right: 9px;
+        font-size: 1.5vh;
+        text-align: right;
+        color: #9ec2bd;
+    }
+    </style>
+<body>
+<h1>C A M A G R U</h1>
+<div class="main">
+    <form class="form" action="" method="POST">
+        <br/>
+        <br/>
+        New password<br><input class="new_password" type="password" name="passwd" value=""/>
+        <br>
+        <br>
+        New password again<br><input class="new_password" type="password" name="passwd2" value=""/>
+        <br>
+        <br>
+        <input class="button" type="submit" name="submit_pw" value="OK"/>
+        <br/>
+    </form>
+    <br>
+    <br>
+    <form class="form" action="index.php">
+        <input class="button" type="submit" value="Return"></input> 
+    </form>
+</div>
+<footer class="footer">
+        <br><hr>
+        <span>Author: kceder @ HIVE Helsinki 2022</span>
+    </footer>
+</body>
+</html>
+<?php
+    if (isset($_POST['submit_pw']) && $_POST['passwd'] === $_POST['passwd2']) {
 
-                    $passwd = $_POST['passwd'];
+        $passwd = $_POST['passwd'];
 
-                    if(passwd_check($passwd)) {    
-                        foreach($match as $k)
-                        {
-                            if($hash == $k['email_verif_link'])
-                            {
-                                try
-                                {
-                                    $passwd = hash('whirlpool', $passwd);
-                                    $conn = connect();
-                                    $stmt = $conn->prepare("UPDATE users SET passwd=:passwd WHERE email_verif_link=:email_verif_link");
-                                    $stmt-> bindParam(':email_verif_link', $hash, PDO::PARAM_STR);
-                                    $stmt-> bindParam(':passwd', $passwd, PDO::PARAM_STR);
-                                    $stmt->execute();
-                                    echo "<p class='error'>Your password has been succesfully reset!</p>";
-                                }
-                                catch(PDOException $e)
-                                {
-                                    echo $stmt . "<br>" . $e->getMessage();
-                                }
-                                $conn = null;
-                            }
-                        }
-                    } else {
-                        echo '<p class="error">Password should be at least 8 characters and has to include at least one upper and lower case letter, one number, and one special character!</p>'; }
+        if(passwd_check($passwd)) {    
+            foreach($match as $k)
+            {
+                if($hash == $k['email_verif_link'])
+                {
+                    try
+                    {
+                        $passwd = hash('whirlpool', $passwd);
+                        $conn = connect();
+                        $stmt = $conn->prepare("UPDATE users SET passwd=:passwd WHERE email_verif_link=:email_verif_link");
+                        $stmt-> bindParam(':email_verif_link', $hash, PDO::PARAM_STR);
+                        $stmt-> bindParam(':passwd', $passwd, PDO::PARAM_STR);
+                        $stmt->execute();
+                        echo "<p class='error'>Your password has been succesfully reset!</p>";
                     }
-                else
-                    echo '<p class="error">Passwords do not match!</p>';
+                    catch(PDOException $e)
+                    {
+                        echo $stmt . "<br>" . $e->getMessage();
+                    }
+                    $conn = null;
+                }
+            }
+        }
+        else
+        {
+            echo '<p class="error">Password should be at least 8 characters and has to include at least one upper and lower case letter, one number, and one special character!</p>'; }
+        }
+        else
+            echo '<p class="error">Passwords do not match!</p>';
             }
         }
         catch(PDOException $e)
@@ -127,5 +140,5 @@
                         
         } else {
             echo '<div class="error">Please use the link provided in mail.</div>';
-    }
+        }
 ?>

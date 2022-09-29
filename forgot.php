@@ -54,6 +54,13 @@
 	form {
 		text-align: center;
 	}
+	.footer {
+        font-style: italic;
+        margin-right: 9px;
+        font-size: 1.5vh;
+        text-align: right;
+		color: #9ec2bd;
+    }
 	</style>
 	<body>
 	<div class="main">
@@ -68,7 +75,10 @@
                 <input class="button" type="submit" value="Return"></input> 
             </form>
 	</div>
-
+    <footer class="footer">
+        <br><hr>
+        <span>Author: kceder @ HIVE Helsinki 2022</span>
+    </footer>
 	</body>
 </html>
 <?php

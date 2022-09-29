@@ -38,6 +38,16 @@
         background: radial-gradient(circle, rgba(94,190,196,1) 0%, rgba(253,245,223,1) 87%);
         /* background: #FDF5DF; */
     }
+    .footer {
+        font-style: italic;
+        margin-right: 20px;
+        font-size: 1.5vh;
+        text-align: right;
+        color: #9ec2bd;
+        position: absolute;
+        bottom: 0;
+        width: 99%;
+    }
     .main {
 		margin-top: 10vh;
         margin-left: auto;
@@ -100,6 +110,9 @@
 	<div class="guest-link">
 		<a href="home.php">Browse Camagru as a guest</a>
 	</div>
-
-	</body>
+    <footer class="footer">
+    <br><hr color="#9ec2bd">
+        <span>Author: kceder @ HIVE Helsinki 2022</span>
+    </footer>
+</body>
 </html>

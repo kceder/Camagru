@@ -12,7 +12,7 @@
     <div class="headers">
         <a href="home.php">HOME</a> | 
         <a href="profile.php">PROFILE</a> | 
-        <a href="camera.php">TAKE A PHOTO</a> | 
+        <a href="camera.php">CAMERA</a> | 
         <?php 
         if($_SESSION['logged_in_user'])
             echo '<a class="logout" href="logout.php">LOG OUT</a>';
@@ -52,9 +52,10 @@
     .login {
         font-style: italic;
         margin-left: 9px;
-        font-size: 1vw;
+        font-size: 1.5vh;
     }
     .headers {
+        font-size: 2.4vh;
         color: black;
         text-align: center;
         padding: 15px 25px;
@@ -79,15 +80,19 @@
         font-size: 1.4vh;
         background: #FDF5DF;
     }
-    .heart{
-
+    .footer {
+        font-style: italic;
+        margin-right: 9px;
+        font-size: 1.5vh;
+        text-align: right;
+        color: #9ec2bd;
     }
     img{
         padding: 10px;
         width: 95%;
         transform: rotateY(180deg);
-        /* -webkit-transform:rotateY(180deg);
-        -moz-transform:rotateY(180deg); */
+        -webkit-transform:rotateY(180deg);
+        -moz-transform:rotateY(180deg);
         border-radius: 24px;
     }
     .comments{
@@ -108,7 +113,8 @@
     .main {
         margin-left: auto;
         margin-right: auto;
-        width: 54vh;
+        width: 94vw;
+        max-width: 500px;
     }
     body {
         background: rgb(94,190,196);
@@ -266,16 +272,10 @@
             }
             ?>
 	</div>
-    </body>
-    <script type="text/javascript">
-    // $( document ).ready(function() {
-    //     window.scroll();
-    // });
-    // $(window).scroll(function() {
-    //     if($(window).scrollTop() + $(window).height() >= $(document).height()) {
-    //         alert('HEYYYY');
-    //     }
-    // });
-
-</script>
+</div>
+</body>
+<footer class="footer">
+    <br><hr color="#9ec2bd">
+    <span>Author: kceder @ HIVE Helsinki 2022</span>
+</footer>
 </html>

@@ -20,11 +20,13 @@
         text-align: center;
     }
     .login {
+        font-size: 2.4vh;
         font-style: italic;
         margin-left: 9px;
-        font-size: 1vw;
+        font-size: 1.5vh;
     }
     .headers {
+        font-size: 2.4vh;
         color: black;
         text-align: center;
         padding: 15px 25px;
@@ -49,7 +51,8 @@
     .main {
         margin-left: auto;
         margin-right: auto;
-        width: 54vh;
+        width: 80vw;
+        max-width: 700px;
         text-align: left;
         background: white;
         padding: 20px;
@@ -70,6 +73,17 @@
         text-transform: uppercase;
         box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
     }
+    .input {
+		width: 20vh;
+		display: inline-block;
+	}
+    .footer {
+        font-style: italic;
+        margin-right: 9px;
+        font-size: 1.5vh;
+        text-align: right;
+        color: #9ec2bd;
+    }
 </style>
     <p class="login"><?php if($_SESSION['logged_in_user'])
             echo 'Logged in as: '.$_SESSION['logged_in_user'];?></p>
@@ -77,7 +91,7 @@
     <div class="headers">
         <a href="home.php">HOME</a> | 
         <a href="profile.php">PROFILE</a> | 
-        <a href="camera.php">TAKE A PHOTO</a> | 
+        <a href="camera.php">CAMERA</a> | 
         <a class="logout" href="logout.php">LOG OUT</a>
     </div>
     <body>
@@ -105,24 +119,23 @@
 					?>
             </label>
             <br>
-            Fill in information you wish to change
-                <br/>
+           <p style="">Fill in information you wish to change</p>
+           <br>
+				New username <br><input class="" type="text" name="new_username" value=""/>
 				<br/>
-				New username: <input class="" type="text" name="new_username" value=""/>
 				<br/>
-				<br/>
-				New password: <input class="" type="password" name="new_passwd" value=""/>
+				New password <br><input class="" type="password" name="new_passwd" value=""/>
                 <br>
                 <br>
-				Password again: <input class="" type="password" name="new_passwd2" value=""/>
+				Password again <br><input class="" type="password" name="new_passwd2" value=""/>
                 <br>
                 <br>
-				New email: <input class="" type="text" name="new_email" value=""/>
+				New email <br><input class="" type="text" name="new_email" value=""/>
 				<br/>
                 <br/>
                 <br/>
                 <br/>
-                Confirm changes by giving the old password <input class="" type="password" name="passwd" value=""/>
+                Confirm changes by giving the old password <br><input class="" type="password" name="passwd" value=""/>
                 <br><br>
 				<input class="button" type="submit" name="submit" value="SAVE" style="background:#77efad;"/>
 			</form>
@@ -133,5 +146,9 @@
                 <input class="button" type="submit" value="Return"></input> 
             </form>
     </div>
+    <footer class="footer">
+        <br><hr>
+        <span>Author: kceder @ HIVE Helsinki 2022</span>
+    </footer>
     </body>
 </html>

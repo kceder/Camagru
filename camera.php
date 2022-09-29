@@ -13,7 +13,7 @@
     <div class="headers">
         <a href="home.php">HOME</a> | 
         <a href="profile.php">PROFILE</a> | 
-        <a href="camera.php">TAKE A PHOTO</a> | 
+        <a href="camera.php">CAMERA</a> | 
         <a class="logout" href="logout.php">LOG OUT</a>
     </div>
 
@@ -23,9 +23,10 @@
     .login {
         font-style: italic;
         margin-left: 9px;
-        font-size: 1vw;
+        font-size: 1.5vh;
     }
     .headers {
+        font-size: 2.4vh;
         color: black;
         text-align: center;
         padding: 15px 25px;
@@ -54,11 +55,11 @@
         display: none;
     }
     .image_container {
-        max-height: 70vh;
+        max-height: 45vh;
         overflow-y: scroll;
         margin-top: 1vh;
         border-style: groove;
-        padding: 20px;
+        padding: 2vh;
         border-radius: 24px;
         border-style: groove;
         border-color: #5EBEC4;
@@ -73,7 +74,8 @@
     .main {
         margin-left: auto;
         margin-right: auto;
-        width: 54vh;
+        width: 94vw;
+        max-width: 500px;
     }
     body {
         background: rgb(94,190,196);
@@ -90,16 +92,18 @@
         margin: auto;
     }
     .sticker {
-        max-width:9vw;
+        max-width: 50px;
+        width: 12vw;
     }
     .sticker1 {
-        max-width:8vw;
+        max-width: 50px;
+        width: 11vw;
         transform: rotateY(180deg);
         -webkit-transform:rotateY(180deg); /* Safari and Chrome */
         -moz-transform:rotateY(180deg); /* Firefox */
     }
     .side_img {
-        width: 49vh;
+        width: 32%;
     }
     .save_button {
         -ms-transform: translateY(-50%);
@@ -112,18 +116,15 @@
         cursor: pointer;
         text-transform: uppercase;
         box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
+        background:#77efad;
     }
     a:link { text-decoration: none; }
-        a:visited { text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        a:active { text-decoration: underline; }
-    a {
-        color: black;
-    }
-        body {
+    a:visited { text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:active { text-decoration: underline; }
+    body {
         background: rgb(94,190,196);
         background: radial-gradient(circle, rgba(94,190,196,1) 0%, rgba(253,245,223,1) 87%);
-        /* background: #FDF5DF; */
     }
     .booth {
         text-align: center;
@@ -131,7 +132,7 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
         background: white;
-        padding: 20px;
+        padding: 3%;
         border-radius: 24px;
         border-style: groove;
         border-color: #5EBEC4;
@@ -139,13 +140,13 @@
         font-size: 1.4vh;
         background: #FDF5DF;
     }
-    .upload-buttons {
-        
+    .footer {
+        font-style: italic;
+        margin-right: 9px;
+        font-size: 1.5vh;
+        text-align: right;
+        color: #9ec2bd;
     }
-    .upload {
-
-    }
-    
 </style>
 <body>
     <div class="main">
@@ -158,7 +159,7 @@
                 <img class="sticker" id="s1" src="./images/stickers/sticker1.png" onclick="selectedSticker(1)">
                 <img class="sticker" id="s2" src="./images/stickers/sticker2.png" onclick="selectedSticker(2)">
                 <img class="sticker1" id="s3" src="./images/stickers/sticker3.png" onclick="selectedSticker(3)">
-                <img class="sticker1" id="s4" src="./images/stickers/sticker4.png" onclick="selectedSticker(4)">
+                <img class="sticker" id="s4" src="./images/stickers/sticker4.png" onclick="selectedSticker(4)">
                 <img class="sticker" id="s5" src="./images/stickers/sticker5.png" onclick="selectedSticker(5)">
             </div>
             <img class= "img1" src="" alt="" id="camera_previw">
@@ -202,24 +203,12 @@
 
 	        </div>
 	</div>
-<div class ="save_button">
-    <button class="button" onclick="postPicture" value="">CAPTURE</button>
-</div>
-<br>
-<div class="upload-container">
-            <form action="upload.php" method="POST" enctype="multipart/form-data">
-                <div class="test"><input type="file" name="file" id="file" required></div>
-                <div class="test" onclick="postUploaded"><input type="submit" value="Upload" name="submit"></div>
-                <input type="hidden" id="sticker1" name="sticker1" value="">
-                <input type="hidden" id="sticker2" name="sticker2" value="">
-                <input type="hidden" id="sticker3" name="sticker3" value="">
-                <input type="hidden" id="sticker4" name="sticker4" value="">
-                <input type="hidden" id="sticker5" name="sticker5" value="">
-            </form>
-        </div>
     <canvas id="canvas" width="400" height="300"></canvas>
 </div>
-
+<footer class="footer">
+        <br><hr>
+        <span>Author: kceder @ HIVE Helsinki 2022</span>
+    </footer>
 </body>
 <script>
 
@@ -245,11 +234,6 @@
     navigator.mediaDevices.getUserMedia({video:true, audio:false}).then(function(stream){
     video.srcObject = stream;
     })
-    // captureCanvas.addEventListener('click', function() {
-   	//     canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-   	//     image_data_url = canvas.toDataURL('image/jpeg');
-    //     newPicture.value = image_data_url;
-    // });
     postPicture.addEventListener('click', function() {
         canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
    	    image_data_url = canvas.toDataURL('image/jpeg');
@@ -278,7 +262,7 @@
             case 1:
                 sticker.value1 *= -1;
                 document.getElementById("sticker1").value = sticker.value1;
-                document.getElementById("s1").style.border = "thick solid #0000FF";
+                document.getElementById("s1").style.border = "solid #5EBEC4";
                 sticker.val = sticker.value1 + sticker.value2 + sticker.value3 + sticker.value4 + sticker.value5;
                 if (sticker.value1 == -1)
                     document.getElementById("s1").style.border = "";
@@ -286,7 +270,7 @@
             case 2:
                 sticker.value2 *= -1;
                 document.getElementById("sticker2").value = sticker.value2;
-                document.getElementById("s2").style.border = "thick solid #0000FF";
+                document.getElementById("s2").style.border = "solid #5EBEC4";
                 sticker.val = sticker.value1 + sticker.value2 + sticker.value3 + sticker.value4 + sticker.value5;
                 if (sticker.value2 == -1)
                     document.getElementById("s2").style.border = "";
@@ -294,7 +278,7 @@
             case 3:
                 sticker.value3 *= -1;
                 document.getElementById("sticker3").value = sticker.value3;
-                document.getElementById("s3").style.border = "thick solid #0000FF";
+                document.getElementById("s3").style.border = "solid #5EBEC4";
                 sticker.val = sticker.value1 + sticker.value2 + sticker.value3 + sticker.value4 + sticker.value5;
                 if (sticker.value3 == -1)
                     document.getElementById("s3").style.border = "";
@@ -302,7 +286,7 @@
             case 4:
                 sticker.value4 *= -1;
                 document.getElementById("sticker4").value = sticker.value4;
-                document.getElementById("s4").style.border = "thick solid #0000FF";
+                document.getElementById("s4").style.border = "solid #5EBEC4";
                 sticker.val = sticker.value1 + sticker.value2 + sticker.value3 + sticker.value4 + sticker.value5;
                 if (sticker.value4 == -1)
                     document.getElementById("s4").style.border = "";
@@ -310,7 +294,7 @@
             case 5:
                 sticker.value5 *= -1;
                 document.getElementById("sticker5").value = sticker.value5;
-                document.getElementById("s5").style.border = "thick solid #0000FF";
+                document.getElementById("s5").style.border = "solid #5EBEC4";
                 sticker.val = sticker.value1 + sticker.value2 + sticker.value3 + sticker.value4 + sticker.value5;
                 if (sticker.value5 == -1)
                     document.getElementById("s5").style.border = "";

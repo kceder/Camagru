@@ -16,15 +16,12 @@
     <div class="headers">
         <a href="home.php">HOME</a> | 
         <a href="profile.php">PROFILE</a> | 
-        <a href="camera.php">TAKE A PHOTO</a> | 
+        <a href="camera.php">CAMERA</a> | 
         <a class="logout" href="logout.php">LOG OUT</a>
     </div>
 
 </head>
 <style>
-    h1 {
-        text-align: center;
-    }
     .confirm-form {
         text-align: center;
         margin-top: 10%;
@@ -39,15 +36,17 @@
         margin-right: auto;
     }
     .login {
-            font-style: italic;
-            margin-left: 9px;
-            font-size: 1vw;
+        font-style: italic;
+        margin-left: 9px;
+        font-size: 1.5vh;
     }
     .headers {
-            color: black;
-            text-align: center;
-            padding: 15px 25px;
-            border: none;
+        font-size: 2.4vh;
+        color: black;
+        text-align: center;
+        padding: 15px 25px;
+        border: none;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     h1 {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -61,8 +60,12 @@
     a:visited { text-decoration: none; }
     a:hover { text-decoration: underline; }
     a:active { text-decoration: underline; }
-    a {
-        color: black;
+    .footer {
+        font-style: italic;
+        margin-right: 9px;
+        font-size: 1.5vh;
+        text-align: right;
+        color: #9ec2bd;
     }
     .confirm-button {
             background: #f0ebe5;
@@ -121,6 +124,10 @@
             <input class="button" type="submit" name="NO" value="GO BACK">
         </form>
     </div>
+    <footer class="footer">
+        <br><hr>
+        <span>Author: kceder @ HIVE Helsinki 2022</span>
+    </footer>
 </body>
 </html>
 <?php

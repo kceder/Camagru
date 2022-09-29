@@ -44,8 +44,7 @@
             $src = imagecreatefrompng('images/stickers/sticker5.png');
             add_sticker($file, $src, -8, -5);
         }
-        include('camera.php');
-        header('Location: camera.php');
+        header("Refresh:0");
     }
     catch(PDOException $e)
     {

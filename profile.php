@@ -11,7 +11,7 @@
     <div class="headers">
         <a href="home.php">HOME</a> | 
         <a href="profile.php">PROFILE</a> | 
-        <a href="camera.php">TAKE A PHOTO</a> | 
+        <a href="camera.php">CAMERA</a> | 
         <a class="" href="edit.php">EDIT PROFILE</a> |
         <a class="logout" href="logout.php">LOG OUT</a> 
     </div>
@@ -21,9 +21,10 @@
     .login {
         font-style: italic;
         margin-left: 9px;
-        font-size: 1vw;
+        font-size: 1.5vh;
     }
     .headers {
+        font-size: 2.4vh;
         color: black;
         text-align: center;
         padding: 15px 25px;
@@ -35,11 +36,13 @@
         text-align: center;
     }
     .main-container {
-        width: 54vh;
+        width: 90vw;
+        max-width: 600px;
         display: flex;
+        justify-content: center;
         text-align: center;
         flex-wrap: wrap;
-        padding: 20px;
+        padding: 1vw;
         border-radius: 24px;
         border-style: groove;
         border-color: #5EBEC4;
@@ -51,7 +54,8 @@
     }
     img{
         padding: 10px;
-        width: 20vh;
+        width: 42vw;
+        max-width: 180px;
         transform: rotateY(180deg);
         -webkit-transform:rotateY(180deg); /* Safari and Chrome */
         -moz-transform:rotateY(180deg); /* Firefox */
@@ -68,6 +72,13 @@
         background: rgb(94,190,196);
         background: radial-gradient(circle, rgba(94,190,196,1) 0%, rgba(253,245,223,1) 87%);
         /* background: #FDF5DF; */
+    }
+    .footer {
+        font-style: italic;
+        margin-right: 9px;
+        font-size: 1.5vh;
+        text-align: right;
+        color: #9ec2bd;
     }
     </style>
     <body>
@@ -98,17 +109,15 @@
                     <?php }
                     }
                 }
-            catch(PDOException $e) {
+            catch(PDOException $e)
+            {
                 echo $stmt . "<br>" . $e->getMessage();
             }
             ?>
 	</div>
+    <footer class="footer">
+        <br><hr>
+        <span>Author: kceder @ HIVE Helsinki 2022</span>
+    </footer>
 </body>
-<script>
-       function del_message(){
-        if (alert("Delete image?")) {
-            
-        }
-    };
-</script>
 </html>
