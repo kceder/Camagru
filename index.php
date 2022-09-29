@@ -1,5 +1,5 @@
 <?php
-    require_once("config/setup.php");
+    require_once("./config/setup.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -86,7 +86,7 @@
     </div>
 	<body>
 	<div class="main">
-			<form class="form" action="login.php" method="POST">
+			<form class="form" action="./srcs/login.php" method="POST">
 				<br/>
 				<br/>
 				Username<br><input class="elem" type="text" name="login" value=""/>
@@ -100,15 +100,24 @@
 				<br>
 				<br>
 			</form>
-			<form action="signup.php">
+			<form action="srcs/signup.php">
 				<input class="button" type="submit" value="SIGN UP"></input>
 			</form>
-			<form action="forgot.php">
+			<form action="srcs/forgot.php">
 				<input style="font-size:x-small;" class="button" type="submit" value="Forgot your password?"></input>
 			</form>
+            <?php
+            if (isset($_GET['error']))
+            {
+                if ($_GET['error'] == 1)
+                    echo "<p class='error'>Please verify your email address!</p>";
+                if ($_GET['error'] == 2)
+                    echo "<p class='error'>Wrong password or username!</p>";
+            }
+            ?>
 	</div>
 	<div class="guest-link">
-		<a href="home.php">Browse Camagru as a guest</a>
+		<a href="srcs/home.php">Browse Camagru as a guest</a>
 	</div>
     <footer class="footer">
     <br><hr color="#9ec2bd">
