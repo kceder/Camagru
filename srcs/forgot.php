@@ -76,8 +76,8 @@
             </form>
 	</div>
     <footer class="footer">
-        <br><hr>
-        <span>Author: kceder @ HIVE Helsinki 2022</span>
+        <br>
+        <span>kceder @ HIVE Helsinki 2022</span>
     </footer>
 	</body>
 </html>

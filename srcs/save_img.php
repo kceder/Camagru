@@ -2,7 +2,7 @@
     session_start();
     require_once('connect.php');
     require_once('../config/setup.php');
-    if(!$_SESSION['logged_in_user'])
+    if(!isset($_SESSION['logged_in_user']))
         header('Location: ../index.php');
     
     if (isset($_POST['image'])) {
@@ -10,6 +10,8 @@
         $img = preg_replace("/data:image\/jpeg;base64,/", '', $img);
         $img = str_replace(' ', '+', $img);
         $img = base64_decode($img);
+        if (!file_exists('../images/user_images/'))
+            mkdir('../images/user_images/');
         $file = '../images/user_images/' . uniqid() . '.jpeg';
         print_r($file);
         $put_content = file_put_contents($file, $img);

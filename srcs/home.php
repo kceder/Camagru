@@ -1,9 +1,11 @@
-<?php   session_start();
+<?php   
+session_start();
         require_once('connect.php');
         include('comment.php');
 ?>
 <!DOCTYPE html>
 <html>
+<title>Camagru</title>
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <p class="login"><?php if($_SESSION['logged_in_user'])
@@ -280,7 +282,7 @@
 </div>
 </body>
 <footer class="footer">
-    <br><hr color="#9ec2bd">
+    <br>
     <span>Author: kceder @ HIVE Helsinki 2022</span>
 </footer>
 </html>

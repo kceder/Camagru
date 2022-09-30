@@ -55,9 +55,9 @@
     }
 	</style>
 	<head>
+        <title>Camagru</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Camagru</title>
         <h1>NEW USER</h1>
 	</head>
 	<body>
@@ -86,8 +86,8 @@
             </form>
 	</div>
     <footer class="footer">
-        <br><hr>
-        <span>Author: kceder @ HIVE Helsinki 2022</span>
+        <br>
+        <span>kceder @ HIVE Helsinki 2022</span>
     </footer>
 	</body>
 </html>

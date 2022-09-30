@@ -1,11 +1,12 @@
 <?php
     session_start(); 
     require_once('connect.php');
-    if(!$_SESSION['logged_in_user'])
+    if(!isset($_SESSION['logged_in_user']))
         header('Location: ../index.php');
 ?>
 <!DOCTYPE html>
 <html>
+<title>Camagru</title>
     <p class="login">Logged in as: <?php echo $_SESSION['logged_in_user'];?></p>
     <h1>C A M A G R U</h1>
     <div class="headers">
@@ -116,8 +117,8 @@
             ?>
 	</div>
     <footer class="footer">
-        <br><hr>
-        <span>Author: kceder @ HIVE Helsinki 2022</span>
+        <br>
+        <span>kceder @ HIVE Helsinki 2022</span>
     </footer>
 </body>
 </html>

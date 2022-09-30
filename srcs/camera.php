@@ -1,13 +1,14 @@
 <?php 
     session_start();
     require_once('connect.php');
-    if(!$_SESSION['logged_in_user'])
+    if(!isset($_SESSION['logged_in_user']))
         header('Location: ../index.php');
 ?>
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
-    <title>Camera</title>
+<head>
+<title>Camagru</title>
     <p class="login">Logged in as: <?php echo $_SESSION['logged_in_user'];?></p>
     <h1>C A M A G R U</h1>
     <div class="headers">
@@ -16,8 +17,6 @@
         <a href="camera.php">CAMERA</a> | 
         <a class="logout" href="logout.php">LOG OUT</a>
     </div>
-
-<head>
 </head>
 <style>
     .login {
@@ -221,8 +220,8 @@
     <canvas id="canvas" width="400" height="300"></canvas>
 </div>
 <footer class="footer">
-        <br><hr>
-        <span>Author: kceder @ HIVE Helsinki 2022</span>
+        <br>
+        <span>kceder @ HIVE Helsinki 2022</span>
     </footer>
 </body>
 <script>

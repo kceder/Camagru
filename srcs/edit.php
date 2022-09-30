@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!$_SESSION['logged_in_user'])
+    if(!isset($_SESSION['logged_in_user']))
         header('Location: ../index.php');
     require_once('connect.php');
 
@@ -89,6 +89,7 @@
         width: 99%;
     }
 </style>
+    <title>Camagru</title>
     <p class="login"><?php if($_SESSION['logged_in_user'])
             echo 'Logged in as: '.$_SESSION['logged_in_user'];?></p>
     <h1>C A M A G R U</h1>
@@ -151,7 +152,7 @@
     </div>
 </body>
 <footer class="footer">
-    <br><hr>
-    <span>Author: kceder @ HIVE Helsinki 2022</span>
+    <br>
+    <span>kceder @ HIVE Helsinki 2022</span>
 </footer>
 </html>

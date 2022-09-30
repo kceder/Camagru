@@ -1,7 +1,7 @@
 <?php
 session_start();
     require_once("connect.php");
-    if(!$_SESSION['logged_in_user'])
+    if(!isset($_SESSION['logged_in_user']))
         header('Location: ../index.php');
 
     $target_dir = "../images/user_images/";

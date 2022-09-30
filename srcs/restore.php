@@ -17,6 +17,7 @@
             if($match > 0) { ?>
 <!DOCTYPE html>
 <html>
+<title>Camagru</title>
     <style>
     .error {
         text-align: center;
@@ -91,8 +92,8 @@
     </form>
 </div>
 <footer class="footer">
-        <br><hr>
-        <span>Author: kceder @ HIVE Helsinki 2022</span>
+        <br>
+        <span>kceder @ HIVE Helsinki 2022</span>
     </footer>
 </body>
 </html>

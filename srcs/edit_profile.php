@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(!$_SESSION['logged_in_user'])
+    if(!isset($_SESSION['logged_in_user']))
         header('Location: ../index.php');
     require_once('email_check.php');
     require_once('passwd_check.php');

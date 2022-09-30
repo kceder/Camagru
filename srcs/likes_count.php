@@ -3,7 +3,7 @@ session_start();
 require_once('connect.php');
 require_once('send_email.php');
 
-if(!$_SESSION['logged_in_user'])
+if(!isset($_SESSION['logged_in_user']))
     header('Location: ../index.php');
 
 $user = $_SESSION['logged_in_user'];
@@ -81,7 +81,7 @@ if (isset($_POST['like']))
 }
 else
 {
-    echo("ERROR");
+    header('Location: home.php');
 }
 header('Location: home.php');
 ?>

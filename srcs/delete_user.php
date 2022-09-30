@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAMAGRU</title>
+    <title>Camagru</title>
     <p class="login"><?php if($_SESSION['logged_in_user'])
             echo 'Logged in as: '.$_SESSION['logged_in_user'];?></p>
     <h1>C A M A G R U</h1>
@@ -128,13 +128,13 @@
         </form>
     </div>
     <footer class="footer">
-        <br><hr>
-        <span>Author: kceder @ HIVE Helsinki 2022</span>
+        <br>
+        <span>kceder @ HIVE Helsinki 2022</span>
     </footer>
 </body>
 </html>
 <?php
-    if(!$_SESSION['logged_in_user'])
+    if(!isset($_SESSION['logged_in_user']))
         header('Location: index.php');
     $username = $_SESSION['logged_in_user'];
     $passwd = $_POST['passwd'];

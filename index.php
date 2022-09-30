@@ -1,4 +1,5 @@
 <?php
+	session_start();
     require_once("./config/setup.php");
 ?>
 <!DOCTYPE html>
@@ -6,7 +7,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>CAMAAN</title>
+		<title>Camagru</title>
 	</head>
 	<style>
     .error {
@@ -78,8 +79,6 @@
 		text-align: center;
 	}
 	</style>
-	    <p class="login"><?php if($_SESSION['logged_in_user'])
-            echo 'Logged in as: '.$_SESSION['logged_in_user'];?></p>
     <h1>C A M A G R U</h1>
     <div class="headers">
     </div>
