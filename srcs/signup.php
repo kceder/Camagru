@@ -1,4 +1,4 @@
-./srcs/<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<style>
     .error {
@@ -12,7 +12,6 @@
     body {
         background: rgb(94,190,196);
         background: radial-gradient(circle, rgba(94,190,196,1) 0%, rgba(253,245,223,1) 87%);
-        /* background: #FDF5DF; */
     }
     .main {
 		margin-top: 10vh;
@@ -27,8 +26,6 @@
         border-color: #5EBEC4;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 1.7vh;
-        /* background: rgb(253,245,223);
-        background: linear-gradient(138deg, rgba(253,245,223,1) 42%, rgba(94,190,196,1) 98%); */
         background: #FDF5DF;
     }
     .button {

@@ -36,7 +36,6 @@
     body {
         background: rgb(94,190,196);
         background: radial-gradient(circle, rgba(94,190,196,1) 0%, rgba(253,245,223,1) 87%);
-        /* background: #FDF5DF; */
     }
     .footer {
         font-style: italic;
@@ -114,14 +113,22 @@
                 if ($_GET['error'] == 2)
                     echo "<p class='error'>Wrong password or username!</p>";
             }
+            if (isset($_GET['message']))
+            {
+                if ($_GET['message'] == 1)
+                    echo "<p class='error'>Verification email has been sent to your email!</p>";
+                if ($_GET['message'] == 2)
+                    echo "<p class='error'>Your account has been activated.</p>";
+                if ($_GET['message'] == 3)
+                    echo "<p class='error'>Invalid approach, please use the link that has been send to your email.</p>";
+            }
             ?>
 	</div>
 	<div class="guest-link">
 		<a href="srcs/home.php">Browse Camagru as a guest</a>
 	</div>
     <footer class="footer">
-    <br><hr color="#9ec2bd">
-        <span>Author: kceder @ HIVE Helsinki 2022</span>
+        <span>kceder @ HIVE Helsinki 2022</span>
     </footer>
 </body>
 </html>

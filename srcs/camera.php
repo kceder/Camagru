@@ -56,7 +56,7 @@
     }
     .image_container {
         max-height: 45vh;
-        overflow-y: scroll;
+        overflow-y: auto;
         margin-top: 1vh;
         border-style: groove;
         padding: 2vh;
@@ -216,7 +216,6 @@
                     echo $stmt . "<br>" . $e->getMessage();
                 }
                 ?>
-
 	        </div>
 	</div>
     <canvas id="canvas" width="400" height="300"></canvas>

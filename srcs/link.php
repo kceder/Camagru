@@ -8,10 +8,13 @@
             $email = $_GET['email'];
             $hash = $_GET['hash'];
             $conn = connect();
-            $sql = "SELECT email_verif_link FROM users WHERE BINARY email_verif_link='$hash'";
+            $sql = "SELECT email_verif_link FROM users WHERE BINARY email='$email'";
             $stmt = $conn->query($sql);
+            print_r($email);
+            print_r($hash);
             $match = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if($match > 0) {
+            if(!empty($match)) {
+                print_r($match);
                 foreach($match as $k)
 				{
                     if($hash == $k['email_verif_link'])
@@ -31,10 +34,10 @@
                         }
 		                $conn = null;
 	                }
-                        echo '<div class="statusmsg">Your account has been activated, you can now login</div>';
+                        header('Location: ../index.php?message=2');
 					}
-			}else{
-                echo '<div class="statusmsg">The url is either invalid or you already have activated your account.</div>';
+			} else {
+                header('Location: ../index.php?message=3');
             }
         }
         catch(PDOException $e)
@@ -44,7 +47,6 @@
         $conn = null;
                     
     } else {
-        echo '<div class="statusmsg">Invalid approach, please use the link that has been send to your email.</div>';
+        header('Location: ../index.php?message=3');
     }
     ?>
-    <a class="" href="../index.php">Go to login</a>

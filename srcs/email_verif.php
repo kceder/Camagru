@@ -1,9 +1,4 @@
 <?php
     session_start();
-    include("forgot.php");
-	echo "<p class='error'>Verification email has been sent to your email!</p>";
+    header('Location: ../index.php?message=1');
 ?>
-    <html>
-    <h1>C A M A G R U</h1>
-    <a class="" href="./index.php">BACK TO MAIN PAGE</a>
-    </html>

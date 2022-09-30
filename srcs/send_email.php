@@ -5,7 +5,7 @@
         
         $subject = 'Verification';
         $message = '        Thanks for signing up '.$name.'!
-        Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.
+        Your account has been created. You can login after you have activated your account by pressing the link below.
         
           
         Please click this link to activate your account:
