@@ -1,5 +1,5 @@
 <?php
-    session_start(); 
+    session_start();
     require_once('connect.php');
     if(!isset($_SESSION['logged_in_user']))
         header('Location: ../index.php');
@@ -7,7 +7,8 @@
 <!DOCTYPE html>
 <html>
 <title>Camagru</title>
-    <p class="login">Logged in as: <?php echo $_SESSION['logged_in_user'];?></p>
+    <p class="login"><?php if(isset($_SESSION['logged_in_user']))
+            echo 'Logged in as: '.$_SESSION['logged_in_user'];?></p>
     <h1>C A M A G R U</h1>
     <div class="headers">
         <a href="home.php">HOME</a> | 
@@ -72,7 +73,6 @@
         body {
         background: rgb(94,190,196);
         background: radial-gradient(circle, rgba(94,190,196,1) 0%, rgba(253,245,223,1) 87%);
-        /* background: #FDF5DF; */
     }
     .footer {
         font-style: italic;
@@ -85,6 +85,7 @@
     <body>
         <div id="image_container" class="main-container">
             <?php
+            if(isset($_SESSION['logged_in_user'])) {
                 try {
                 $user = $_SESSION['logged_in_user'];
                 $snap_stat = 1;
@@ -114,6 +115,7 @@
             {
                 echo $stmt . "<br>" . $e->getMessage();
             }
+        }
             ?>
 	</div>
     <footer class="footer">

@@ -30,7 +30,6 @@
     body {
         background: rgb(94,190,196);
         background: radial-gradient(circle, rgba(94,190,196,1) 0%, rgba(253,245,223,1) 87%);
-        /* background: #FDF5DF; */
     }
     .main {
         margin-top: 10vh;

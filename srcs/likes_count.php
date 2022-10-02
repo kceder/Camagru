@@ -5,7 +5,7 @@ require_once('send_email.php');
 
 if(!isset($_SESSION['logged_in_user']))
     header('Location: ../index.php');
-
+else {
 $user = $_SESSION['logged_in_user'];
 $like_status = 0;
 if (isset($_POST['like']))
@@ -84,4 +84,5 @@ else
     header('Location: home.php');
 }
 header('Location: home.php');
+}
 ?>

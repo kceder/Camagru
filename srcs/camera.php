@@ -9,7 +9,8 @@
 <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
 <head>
 <title>Camagru</title>
-    <p class="login">Logged in as: <?php echo $_SESSION['logged_in_user'];?></p>
+<p class="login"><?php if(isset($_SESSION['logged_in_user']))
+            echo 'Logged in as: '.$_SESSION['logged_in_user'];?></p>
     <h1>C A M A G R U</h1>
     <div class="headers">
         <a href="home.php">HOME</a> | 
@@ -193,6 +194,7 @@
             ?>
             <div id="image_container" class="image_container">
                 <?php
+                if(isset($_SESSION['logged_in_user'])) {
                 try {
                     $user = $_SESSION['logged_in_user'];
                     $snap_stat = 1;
@@ -214,6 +216,7 @@
                 catch(PDOException $e) {
                     echo $stmt . "<br>" . $e->getMessage();
                 }
+            }
                 ?>
 	        </div>
 	</div>

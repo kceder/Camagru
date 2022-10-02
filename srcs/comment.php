@@ -1,11 +1,13 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once('connect.php');
 require_once('send_email.php');
-$username = $_SESSION['logged_in_user'];
-$img_path = $_POST['img_path'];
-$comment =  htmlspecialchars($_POST['comment']);
-if($_POST['OK'] === 'Post' && $comment){
+if(isset($_POST['OK']) && $_POST['OK'] === 'Post' && htmlspecialchars($_POST['comment'])){
+    $username = $_SESSION['logged_in_user'];
+    $img_path = $_POST['img_path'];
+    $comment =  htmlspecialchars($_POST['comment']);
     try {
         $conn = connect();
         $stmt = $conn->prepare("INSERT INTO image_comments (username, img_path, comment)

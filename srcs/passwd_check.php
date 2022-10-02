@@ -1,5 +1,4 @@
 <?php
-    session_start();
     function passwd_check($new_passwd){
         $uppercase = preg_match('@[A-Z]@', $new_passwd);
         $lowercase = preg_match('@[a-z]@', $new_passwd);

@@ -8,7 +8,7 @@ session_start();
 <title>Camagru</title>
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <p class="login"><?php if($_SESSION['logged_in_user'])
+    <p class="login"><?php if(isset($_SESSION['logged_in_user']))
             echo 'Logged in as: '.$_SESSION['logged_in_user'];?></p>
     <h1>C A M A G R U</h1>
     <div class="headers">
@@ -16,7 +16,7 @@ session_start();
         <a href="profile.php">PROFILE</a> | 
         <a href="camera.php">CAMERA</a> | 
         <?php 
-        if($_SESSION['logged_in_user'])
+        if(isset($_SESSION['logged_in_user']))
             echo '<a class="logout" href="logout.php">LOG OUT</a>';
         else
             echo '<a class="logout" href="../index.php">LOG IN</a>';
@@ -253,7 +253,7 @@ session_start();
                         ?>
                     </div>
                     <?php
-                        if($_SESSION['logged_in_user']){ ?>
+                        if(isset($_SESSION['logged_in_user'])){ ?>
                     <br>
                     <form class="form" action="comment.php" method="POST">   
                         <textarea name="comment" id="comment" rows="1" placeholder=" Write a comment..."></textarea><br/>

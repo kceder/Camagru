@@ -1,6 +1,4 @@
 <?php
-    session_start();
-    
     function email_sender($email, $name, $hash) {
         
         $subject = 'Verification';

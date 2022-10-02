@@ -136,9 +136,9 @@
 <?php
     if(!isset($_SESSION['logged_in_user']))
         header('Location: index.php');
-    $username = $_SESSION['logged_in_user'];
-    $passwd = $_POST['passwd'];
-    if ($_POST['YES'] === 'CONFIRM'){
+    if (isset($_POST['YES']) &&$_POST['YES'] === 'CONFIRM'){
+        $username = $_SESSION['logged_in_user'];
+        $passwd = $_POST['passwd'];
         if(verify($username, $passwd)){
             $conn = connect();
             $stmt = $conn->prepare("DELETE FROM image_comments WHERE username = '$username';
@@ -154,7 +154,7 @@
             echo "<html><p class='message1'>Incorrect Password!</p></html>";
         }
     }
-    else if ($_POST['NO'] === 'GO BACK') {
+    else if (isset($_POST['NO']) && $_POST['NO'] === 'GO BACK') {
         header('Location: edit.php');
     }
 ?>

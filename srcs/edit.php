@@ -62,8 +62,6 @@
         border-color: #5EBEC4;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 1.7vh;
-        /* background: rgb(253,245,223);
-        background: linear-gradient(138deg, rgba(253,245,223,1) 42%, rgba(94,190,196,1) 98%); */
         background: #FDF5DF;
     }
     .button {

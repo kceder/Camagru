@@ -1,5 +1,4 @@
 <?php
-    session_start();
     function email_check($email) {
         $conn = connect();
         $sql = "SELECT email FROM users WHERE BINARY email='$email'";

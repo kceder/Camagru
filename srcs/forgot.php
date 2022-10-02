@@ -22,7 +22,6 @@
     body {
         background: rgb(94,190,196);
         background: radial-gradient(circle, rgba(94,190,196,1) 0%, rgba(253,245,223,1) 87%);
-        /* background: #FDF5DF; */
     }
     .main {
 		margin-top: 10vh;
@@ -71,7 +70,8 @@
 				<input class="button" type="submit" name="submit" value="OK" id="submmit"/>
 				<br/>
 			</form>
-			<form class="form" action="./index.php">
+			<br>
+			<form class="form" action="../index.php">
                 <input class="button" type="submit" value="Return"></input> 
             </form>
 	</div>
