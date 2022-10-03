@@ -39,6 +39,7 @@
     }
     .main-container {
         width: 90vw;
+        min-height: 10vh;
         max-width: 600px;
         display: flex;
         justify-content: center;

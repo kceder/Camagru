@@ -124,7 +124,9 @@
                 if ($_GET['message'] == 4){
                     echo '<p class="error">An email has been sent to you. 
                     Please follow the link in the email to restore your password.</p>';
-                }
+                    }
+                if ($_GET['message'] == 5)
+                    echo "<p class='error'>Your password has been succesfully reset!</p>";
             }
             ?>
 	</div>

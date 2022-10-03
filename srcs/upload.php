@@ -3,7 +3,10 @@ session_start();
     require_once("connect.php");
     if(!isset($_SESSION['logged_in_user']))
         header('Location: ../index.php');
-
+    if (empty($_FILES["file"]["name"]) ) {
+        header("Location: camera.php");
+        exit();
+    }
     $target_dir = "../images/user_images/";
     $file = ($_FILES["file"]["name"]);
     $img_path = $target_dir . $file;

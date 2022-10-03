@@ -8,7 +8,7 @@
     require_once('passwd_check.php');
     require_once('verify_passwd.php');
     require_once('user_check.php');
-    $new_user = ($_POST['new_username']);
+    $new_user = htmlspecialchars($_POST['new_username']);
     $old_passwd = htmlspecialchars($_POST['passwd']);
     $new_passwd = htmlspecialchars($_POST['new_passwd']);
     $new_passwd2 = htmlspecialchars($_POST['new_passwd2']);
