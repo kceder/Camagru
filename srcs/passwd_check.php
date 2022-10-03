@@ -6,7 +6,7 @@
         $specials = preg_match('@[^\w]@', $new_passwd);
 
         if(!$uppercase || !$lowercase || !$number || !$specials ||
-        strlen($new_passwd) < 8 || strlen($new_passwd) > 2999) {
+        strlen($new_passwd) < 8 || strlen($new_passwd) > 20) {
             return 0;
         }
         else

@@ -15,7 +15,7 @@
         $sql = "CREATE TABLE IF NOT EXISTS users (
             id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             username VARCHAR(30) NOT NULL,
-            passwd VARCHAR(3000) NOT NULL,
+            passwd VARCHAR(300) NOT NULL,
             email VARCHAR(100) NOT NULL,
             email_verif_link VARCHAR(255) NOT NULL,
             active VARCHAR(30) NOT NULL,
@@ -33,8 +33,8 @@
 		$sql = "CREATE TABLE IF NOT EXISTS user_images (
 		id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 		username VARCHAR(50) NOT NULL,
-		img_name TEXT NOT NULL,
-		img_path TEXT NOT NULL )";
+		img_name TEXT(100) NOT NULL,
+		img_path TEXT(100) NOT NULL )";
 		$conn->exec($sql);
 	}
 	catch(PDOException $e) {
@@ -47,8 +47,8 @@
 		$sql = "CREATE TABLE IF NOT EXISTS image_comments (
 		id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 		username VARCHAR(50) NOT NULL,
-		img_path TEXT NOT NULL,
-        comment TEXT NOT NULL,
+		img_path TEXT(100) NOT NULL,
+        comment TEXT(300) NOT NULL,
         time_stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP)"; 
 		$conn->exec($sql);
 	}
@@ -63,7 +63,7 @@
 		$sql = "CREATE TABLE IF NOT EXISTS image_likes (
 		id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 		username VARCHAR(50) NOT NULL,
-		img_path TEXT NOT NULL,
+		img_path TEXT(100) NOT NULL,
         like_status VARCHAR(30) NOT NULL)"; 
 		$conn->exec($sql);
 	}

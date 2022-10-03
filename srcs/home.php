@@ -55,6 +55,7 @@ session_start();
         width: 3vh;
         float: right;
         padding: 0vh;
+        border-radius: 0;
     }
     .login {
         font-style: italic;
@@ -148,8 +149,9 @@ session_start();
     .comment-user {
         font-weight: bold;
     }
-    .comment-text .comment-user {
-        font-size: large;
+    .comment-text {
+        overflow-wrap: break-word;
+        max-width: 100px;
     }
     .comment-button {
         background: #f0ebe5;
@@ -256,7 +258,7 @@ session_start();
                         if(isset($_SESSION['logged_in_user'])){ ?>
                     <br>
                     <form class="form" action="comment.php" method="POST">   
-                        <textarea name="comment" id="comment" rows="1" placeholder=" Write a comment..."></textarea><br/>
+                        <textarea name="comment" id="comment" rows="1" maxlength="300" placeholder=" Write a comment (300)"></textarea><br/>
                         <input type="hidden" name="img_path" value="<?php echo $k['img_path'];?>">
                         <input type="submit" class="comment-button" value="Post" name="OK">
                     </form> <?php

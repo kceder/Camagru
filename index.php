@@ -1,6 +1,7 @@
 <?php
 	session_start();
     require_once("./config/setup.php");
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -120,6 +121,10 @@
                     echo "<p class='error'>Your account has been activated.</p>";
                 if ($_GET['message'] == 3)
                     echo "<p class='error'>Invalid approach, please use the link that has been send to your email.</p>";
+                if ($_GET['message'] == 4){
+                    echo '<p class="error">An email has been sent to you. 
+                    Please follow the link in the email to restore your password.</p>';
+                }
             }
             ?>
 	</div>

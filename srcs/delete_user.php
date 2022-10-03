@@ -146,7 +146,6 @@
             DELETE FROM user_images WHERE username = '$username';
             DELETE FROM users WHERE username = '$username'");
             $stmt->execute();
-            print_r($_POST['submit']);
             $_SESSION = array();
             header('Location: home.php');
         }

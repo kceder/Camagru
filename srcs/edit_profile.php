@@ -1,5 +1,7 @@
 <?php
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
     if(!isset($_SESSION['logged_in_user']))
         header('Location: ../index.php');
     require_once('email_check.php');
@@ -33,7 +35,7 @@
         }
         if (!passwd_check($new_passwd) && $new_passwd) {
             include("edit.php");
-            echo '<p class="error">Password should be at least 8 characters and has to include at least one upper and lower case letter, one number, and one special character!</p>';
+            echo '<p class="error">Password should be 8-20 characters and has to include at least one upper and lower case letter, one number, and one special character!</p>';
         }
         if (!empty($new_email)) {
             if (email_check($new_email) == 1){

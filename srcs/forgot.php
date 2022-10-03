@@ -74,6 +74,15 @@
 			<form class="form" action="../index.php">
                 <input class="button" type="submit" value="Return"></input> 
             </form>
+			<?php
+			if (isset($_GET['error']))
+            {
+                if ($_GET['error'] == 1)
+					echo "<p class='error'>Email not found. Please try again.</p>";
+                if ($_GET['error'] == 2)
+					echo '<p class="error">There was a problem sending the email. Try again</p>';
+			}
+			?>
 	</div>
     <footer class="footer">
         <br>
@@ -90,16 +99,19 @@
 			$sql = "SELECT username, passwd, email_verif_link FROM users WHERE `email`='$email'";
 			$stmt = $conn->query($sql);
 			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-			$username = $result[0]['username'];
-			$password = $result[0]['passwd'];
-			$hash = $result[0]['email_verif_link'];
+			if (isset($result[0]['username']))
+				$username = $result[0]['username'];
+			if (isset($result[0]['passwd']))
+				$password = $result[0]['passwd'];
+			if (isset($result[0]['email_verif_link']))
+				$hash = $result[0]['email_verif_link'];
 		}
 		catch(PDOException $e)
 		{
             echo $stmt . "<br>" . $e->getMessage();
 		}
 		if(!$result)
-			echo "<p class='error'>Email not found. Please try again.</p>";
+			header('Location: ./forgot.php?error=1');
 		else {
 
 			$subject = 'NEW PASSWORD';
@@ -110,9 +122,9 @@
 			
 			';
 			if(mail($email, $subject, $message))
-				echo '<p class="error">An email has been sent to you. Please follow the link in the email to restore your password.</p>';
+				header('Location: ../index.php?message=4');
 			else
-				echo '<p class="error">There was a problem sending the email. Try again</p>';
+				header('Location: ./forgot.php?error=2');
 		}
     }
 ?>

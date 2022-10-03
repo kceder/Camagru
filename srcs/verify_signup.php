@@ -19,17 +19,19 @@
             return ;
         }
         else if (!passwd_check($new_passwd)){
-            echo '<p class="error">Password should be at least 8 characters and has to include at least one upper and lower case letter, one number, and one special character!</p>';
+            echo '<p class="error">Password should be 8-20 characters and has to include at least one upper and lower case letter, one number, and one special character!</p>';
+            return ;
         }
         else if ($_POST['passwd2'] !== $_POST['passwd']) {
             echo "<p class='error'>Passwords do not match</p>";
+            return ;
         }
         else if (email_check($new_email) == 1) {
-            echo "<p class='error'>'$new_email' is already connected to Camagru!'</p>";
+            echo "<p class='error'>$new_email is invalid email address!</p>";
             return ;
         }
         else if (email_check($new_email) == 2) {
-            echo "<p class='error'>'$new_email' is invalid email address!'</p>";
+            echo "<p class='error'>$new_email is already connected to Camagru!</p>";
             return ;
         }
         else {
@@ -53,7 +55,7 @@
             }
             catch(PDOException $e)
             {
-                echo $sql . "<br>" . $e->getMessage();
+                echo $e->getMessage();
             }
             $conn = null;
         }

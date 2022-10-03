@@ -8,6 +8,8 @@ if(isset($_POST['OK']) && $_POST['OK'] === 'Post' && htmlspecialchars($_POST['co
     $username = $_SESSION['logged_in_user'];
     $img_path = $_POST['img_path'];
     $comment =  htmlspecialchars($_POST['comment']);
+    if (strlen($comment) > 300)
+        header('Location: home.php');
     try {
         $conn = connect();
         $stmt = $conn->prepare("INSERT INTO image_comments (username, img_path, comment)
@@ -33,7 +35,7 @@ if(isset($_POST['OK']) && $_POST['OK'] === 'Post' && htmlspecialchars($_POST['co
     }
     catch(PDOException $e)
     {
-        echo $sql . "<br>" . $e->getMessage();
+        echo $stmt . "<br>" . $e->getMessage();
     }
     $conn = null;
 
