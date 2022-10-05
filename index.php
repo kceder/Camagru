@@ -1,7 +1,6 @@
 <?php
 	session_start();
     require_once("./config/setup.php");
-    
 ?>
 <!DOCTYPE html>
 <html>

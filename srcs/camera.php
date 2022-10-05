@@ -154,6 +154,7 @@ if(!isset($_SESSION['logged_in_user']))
         color: #c95e5e;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+
 </style>
 <body>
     <div class="main">
@@ -217,8 +218,8 @@ if(!isset($_SESSION['logged_in_user']))
                 }
                 catch(PDOException $e) {
                     echo $stmt . "<br>" . $e->getMessage();
+                    }
                 }
-            }
                 ?>
 	        </div>
 	</div>
@@ -238,7 +239,6 @@ if(!isset($_SESSION['logged_in_user']))
         "../images/stickers/sticker4.png",
         "../images/stickers/sticker5.png",
     )
-
     let cameraPreviw = document.getElementById('camera_previw');
     let display = document.getElementById('display');
     let video = document.getElementById('video');
@@ -268,7 +268,6 @@ if(!isset($_SESSION['logged_in_user']))
         else
             alert("Choose at least one sticker!")
     });
-
     sticker.value1 = -1;
     sticker.value2 = -1;
     sticker.value3 = -1;
