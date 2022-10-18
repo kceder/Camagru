@@ -71,5 +71,4 @@
 		echo $sql . "<br>" . $e->getMessage();
 	}
 	$conn = null;
-
 ?>
